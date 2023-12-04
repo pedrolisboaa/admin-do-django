@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -13,7 +14,7 @@ class Tecnologia(models.Model):
 class Post(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.CharField(max_length=256)
-    conteudo = models.TextField()
+    conteudo = RichTextField()
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     tecnologia = models.ManyToManyField(Tecnologia)
 
